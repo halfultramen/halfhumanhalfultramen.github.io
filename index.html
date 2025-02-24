@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fandhika Azhar | Portofolio Project</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <canvas id="matrixCanvas"></canvas>
@@ -34,6 +35,14 @@
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImg">
         <p id="modalText"></p>
+    </div>
+    <div class="footer">
+        <p><strong>Contact Info</strong></p>
+        <p><i class="fas fa-envelope"></i> Email: example@email.com</p>
+        <p>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        </p>
     </div>
     <script>
         function openModal(src, title, description) {
@@ -150,6 +159,21 @@
             color: #333;
             font-size: 20px;
             margin-top: 10px;
+        }
+        .footer {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .footer a {
+            text-decoration: none;
+            color: #000;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .footer i {
+            margin-right: 5px;
         }
     </style>
 </body>
