@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+    <div class="terminal">
+        <h1>> Welcome to My Profile</h1>
+        <p id="typing"></p>
+    </div>
+    <div class="gallery">
+        <div class="project" onclick="openModal('project1.jpg', 'Project 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')">
+            <img src="project1.jpg" alt="Project 1" class="thumbnail">
+            <p>Project 1</p>
+        </div>
+        <div class="project" onclick="openModal('project2.jpg', 'Project 2', 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')">
+            <img src="project2.jpg" alt="Project 2" class="thumbnail">
+            <p>Project 2</p>
+        </div>
+        <div class="project" onclick="openModal('project3.jpg', 'Project 3', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.')">
+            <img src="project3.jpg" alt="Project 3" class="thumbnail">
+            <p>Project 3</p>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <p id="modalText"></p>
+    </div>
+    <script>
+        function openModal(src, title, description) {
+            document.getElementById("modal").style.display = "block";
+            document.getElementById("modalImg").src = src;
+            document.getElementById("modalText").innerText = title + "\n" + description;
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;const columns = Math.floor(canvas.width / 20);
+    const drops = Array(columns).fill(0);
+    const fontColor = '#5a5a5a'; // Warna lebih lembut
+    
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = fontColor;
+        ctx.font = '18px monospace';
+        drops.forEach((y, index) => {
+            const text = String.fromCharCode(33 + Math.random() * 94);
+            ctx.fillText(text, index * 20, y * 20);
+            if (y * 20 > canvas.height && Math.random() > 0.975) {
+                drops[index] = 0;
+            } else {
+                drops[index]++;
+            }
+        });
+    }
+    setInterval(drawMatrix, 50);
+</script>
+<style>
+    body {
+        margin: 0;
+        overflow-y: auto;
+        font-family: 'Arial', sans-serif;
+        background: #f5f5f5;
+        color: #333;
+    }
+    canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .terminal {
+        text-align: center;
+        margin: 50px auto;
+        padding: 20px;
+        border: 2px solid #ccc;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+    }
+    .gallery {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .project {
+        display: inline-block;
+        text-align: center;
+        margin: 20px;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        padding: 10px;
+        background: white;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        text-align: center;
+    }
+    .modal-content {
+        margin-top: 10%;
+        width: 50%;
+        border: 3px solid #ccc;
+        background: white;
+        border-radius: 10px;
+    }
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 30px;
+        color: #333;
+        cursor: pointer;
+    }
+    #modalText {
+        color: #333;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+</style>
+
+</body>
+</html>
