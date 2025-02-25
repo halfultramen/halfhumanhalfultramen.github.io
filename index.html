@@ -61,7 +61,7 @@ Praesent id sodales dui. Nullam faucibus viverra semper. Cras vel lacus a mauris
         </div>
         <div class="project" onclick="openModal(event, 'Arduino Car Obstacle Avoidance', 'https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/163674485-045ae8ae-8892-42f3-b098-85d7d61e1e29.jpg')">
             <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/163674485-045ae8ae-8892-42f3-b098-85d7d61e1e29.jpg" alt="Project 1">
-            <p>Arduino Car Obstacle Avoidance</p>
+            <p>Obstacle Avoidance Car</p>
             <div class="hidden-desc" style="display: none;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec mollis mauris. Suspendisse turpis tellus, porttitor maximus metus nec, suscipit bibendum urna. Aliquam erat volutpat. Praesent iaculis lorem eget felis accumsan, id posuere leo sagittis. Vestibulum suscipit lorem quam, id fermentum velit vulputate ac. Suspendisse potenti. Aliquam ligula nisi, accumsan quis molestie ut, vehicula quis nibh. Donec eget erat pretium, dapibus nisi sed, faucibus ex.
 
@@ -113,7 +113,57 @@ Praesent id sodales dui. Nullam faucibus viverra semper. Cras vel lacus a mauris
             <div id="modal-desc"></div>
         </div>
     </div>
+    
+    <div class="container">
+        <div class="slider-container">
+            <div class="slides">
+                <div class="slide">
+                    <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/IMG_20250223_085414.jpg" alt="Lomba 1">
+                    <div class="caption">
+                        <h3>SAFMC 2023 - D1 Semi Autonomus Drone</h3>
+                        <p>Our team participated in SAFMC 2023, one of the most prestigious drone competitions in Southeast Asia. The competition challenges participants to develop innovative drone systems and push the boundaries of autonomous flight technology.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/359830359_667219805449084_1354178505657856322_n.jpg" alt="Lomba 2">
+                    <div class="caption">
+                        <h3>My Team on SAFMC 2023</h3>
+                        <p>Our team of three worked tirelessly to design, build, and test our drone system. We integrated various technologies to enable the drone to operate with minimal manual input, ensuring precise and stable flight performance.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/359507083_667218302115901_490690523955444480_n.jpg" alt="Lomba 3">
+                    <div class="caption">
+                        <h3>Category: D1 - Semi Autonomous Drone</h3>
+                        <p>In this category, we developed a system that allows a drone to be controlled without using a conventional remote controller. Our goal was to create a semi-autonomous control system that enhances operational efficiency and usability.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/FTI-UAD-52.jpg" alt="Lomba 4">
+                    <div class="caption">
+                        <h3>🏆 4th Place in D1 - Semi Autonomous Drone Category</h3>
+                        <p>Alhamdulillah, our hard work paid off as we secured 4th place in the competition. Competing against top teams, we demonstrated innovation and technical expertise, making this achievement a proud milestone for our team.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://raw.githubusercontent.com/fandhikazhr/dhikaazharporto.github.io/main/IMG_20250225_115324.jpg" alt="Lomba 5">
+                    <div class="caption">
+                        <h3>Allhamdulillah</h3>
+                        <p>My first experience on International Competition :)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="clock" id="clock"></div>
+    
+    
+    
     <div class="footer">
         <p><strong>Contact Info</strong></p>
         <p><i class="fas fa-envelope"></i> Email: fandhikaazhar2302@gmail.com</p>
@@ -136,6 +186,32 @@ Praesent id sodales dui. Nullam faucibus viverra semper. Cras vel lacus a mauris
         function closeModal() {
             document.getElementById('modal').style.display = 'none';
         }
+    </script>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        setInterval(nextSlide, 5000); // Pindah otomatis setiap 5 detik
     </script>
     <script>
         function updateClock() {
@@ -273,6 +349,72 @@ Praesent id sodales dui. Nullam faucibus viverra semper. Cras vel lacus a mauris
             padding: 10px;
             border-top: 1px solid #ddd;
             margin-top: 10px;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
+            height: 400px; /* Pastikan ukuran gambar tetap */
+            object-fit: cover; /* Hindari distorsi */
+            display: block;
+            border-radius: 10px 10px 0 0;
+        }
+        .caption {
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .caption h3 {
+            margin: 5px 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .caption p {
+            font-size: 14px;
+            color: #666;
+        }
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .nav-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .nav-buttons button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
         .clock {
             display: flex;
