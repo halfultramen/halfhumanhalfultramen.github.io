@@ -110,8 +110,14 @@ Praesent id sodales dui. Nullam faucibus viverra semper. Cras vel lacus a mauris
     <script>
         function updateClock() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString(); // Sesuai dengan regional pengguna
-            document.getElementById("clock").textContent = timeString;
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12 || 12; // Konversi ke format 12 jam
+
+            document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
         }
         setInterval(updateClock, 1000);
         updateClock(); // Panggil langsung agar tidak ada delay pertama kali
