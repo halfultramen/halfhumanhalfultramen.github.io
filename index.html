@@ -78,6 +78,29 @@
         </div>
     </div>
     
+    
+    <div class="container">
+    <div class="terminal">
+      <h2>Pengalaman Kerja</h2>
+      <div class="experience-gallery">
+
+        <div class="experience-card">
+          <h3>3D Designer, IoT Engineer, Production Team</h3>
+          <p class="exp-subtitle">Bony 3D • September 2023 - Mei 2024</p>
+          <p class="exp-desc">Saya memiliki pengalaman kerj di salah satu perusahaan swasta yang bergerak di bidang 3D Printing, dan memegang beberapa projek komersial dari perusahaan tersebut. Seperti Desain Objek 3D dengan Fusion360, Pengembangan Perangkat IoT, dan Pembuatan Alat Produksi (Fillament Roller Automatic).</p>
+        </div>
+
+        <div class="experience-card">
+          <h3>IT Programmer</h3>
+          <p class="exp-subtitle">KINGPHOENIX • Februari 2021 - Februari 2024</p>
+          <p class="exp-desc">Mengerjakan beberapa projek lomba Nasional dan Internasional terutama dalam bidang Drone Autonomus. Diantaranya SAFMC (Singapore Amazing Flying Machine) 2023, mendapatkan juara 4 pada kategori Semi-Autonomus dengan membuat perangkat Wearable dengan satu tangan untuk mengendalikan dan menavigasi drone. Serta KRTI (Kontes Robot Terbang Indonesia) 2023, mendapatkan juara 3 untuk misi terbang Drone Autonomus Indoor dan Outdoor.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    
+    
     <div class="container">
         <div class="slider-container">
             <div class="slides">
@@ -238,7 +261,7 @@
         .terminal {
             text-align: center;
             margin: 10px auto;
-            margin-top: 50px;
+            margin-top: 10px;
             padding: 20px;
             border: 2px solid #ccc;
             background-color: rgba(255, 255, 255, 0.9);
@@ -315,6 +338,44 @@
             border-top: 1px solid #ddd;
             margin-top: 10px;
         }
+        
+        .experience-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .experience-card {
+        background: white;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        width: 280px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: left;
+        cursor: default;
+    }
+    .experience-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .experience-card h3 {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 20px;
+    }
+    .exp-subtitle {
+        margin: 0;
+        color: #666;
+        font-size: 14px;
+    }
+    .exp-desc {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #444;
+    }
+        
         .container {
             width: 90%;
             max-width: 900px;
